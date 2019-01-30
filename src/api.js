@@ -15,7 +15,7 @@ export function checkLogin() {
 
 function formatPatients(patients) {
   return patients.map((p) => {
-    const phoneNumbers = [];
+    const phoneNumbers = []
     if (p.phone) {
       phoneNumbers.push({
         phoneNumber: p.phone.replace(/[^\d+]/g, ''),
