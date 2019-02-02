@@ -5,6 +5,8 @@ const ExtraneousFileCleanupPlugin = require('webpack-extraneous-file-cleanup-plu
 const path = require('path')
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin')
 
+const browser = process.env.BROWSER || 'chrome'
+
 const stylusSettingPlugin =  new webpack.LoaderOptionsPlugin({
   test: /\.styl$/,
   stylus: {
@@ -31,7 +33,7 @@ var config = {
   entry: {
     content: './src/content.js',
     background: './src/background.js',
-    manifest: './src/manifest.json'
+    manifest: `./src/manifest.${browser}.json`
   },
   output: {
     path: __dirname + '/dist',
@@ -56,7 +58,7 @@ var config = {
   module: {
     rules: [
       {
-        test: /manifest\.json$/,
+        test: /manifest\.\w+.json$/,
         use: [
           'manifest-loader'
         ]

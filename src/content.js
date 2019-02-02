@@ -60,5 +60,4 @@ function injectWidget() {
 }
 
 injectWidget()
-
-window.addEventListener('load', createApp(config))
+createApp(config)()

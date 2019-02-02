@@ -6934,10 +6934,10 @@ rimraf@~2.2.6:
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.2.8.tgz#e439be2aaee327321952730f99a8929e4fc50582"
   integrity sha1-5Dm+Kq7jJzIZUnMPmaiSnk/FBYI=
 
-ringcentral-embeddable-extension-common@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/ringcentral-embeddable-extension-common/-/ringcentral-embeddable-extension-common-0.3.1.tgz#d1af2d99838112507869e02bc037252ce58bf7af"
-  integrity sha512-9Vd2w1O/uN/qDoFn0/29+OjivECcOb4VImnLryn11tJVP7UulkWraJ9CXO+wG4IwbOxpYKHHPOLLEN0wR4UGgg==
+ringcentral-embeddable-extension-common@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/ringcentral-embeddable-extension-common/-/ringcentral-embeddable-extension-common-0.4.2.tgz#2af2d92928cfe6403c82975598aac3d6741cb820"
+  integrity sha512-hA6oefC+v6gDUteOFpuxhBsu40iH7ZxhZPTEL3GAi3yMVsEFGk9Kfcax98hly1VkJFxxFFy8y6RIyka14RKAzQ==
   dependencies:
     libphonenumber-js "1.6.9"
     lodash "4.17.11"

@@ -7,6 +7,7 @@
 .idea/
 /temp/
 .vscode/
+/dist/**/*
 /dist/*.js
 /dist/*.json
 /dist/*.map
@@ -38,3 +39,4 @@ npm-debug.log*
 /pids/
 
 docs/esdoc
+web-ext-artifacts

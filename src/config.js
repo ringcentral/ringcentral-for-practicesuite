@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import { searchContacts, matchContacts, checkLogin } from './api'
 
 /**
@@ -130,7 +129,7 @@ export function thirdPartyServiceConfig(serviceName) {
         response: { data: 'ok' }
       })
     } else if (data.path === '/contacts/search') {
-      const keyword = _.get(data, 'body.searchString')
+      const keyword = data.body.searchString
       const result = await searchContacts(keyword)
       rc.postMessage({
         type: 'rc-post-message-response',
@@ -141,7 +140,7 @@ export function thirdPartyServiceConfig(serviceName) {
       })
     }
     else if (data.path === '/contacts/match') {
-      const phoneNumbers = _.get(data, 'body.phoneNumbers') || []
+      const phoneNumbers = data.body.phoneNumbers || []
       const contacts = await matchContacts(phoneNumbers.slice(0, 4))
       rc.postMessage({
         type: 'rc-post-message-response',

@@ -33,6 +33,11 @@ function formatPatients(patients) {
   })
 }
 
+function getBaseUrl() {
+  const portStr = window.location.port ? `:${window.location.port}` : ''
+  return `${window.location.protocol}//${window.location.hostname}${portStr}`
+}
+
 export async function searchPhoneNumber(phoneNumber) {
   let searchString = phoneNumber
   if (phoneNumber.length > 2) {
@@ -42,7 +47,7 @@ export async function searchPhoneNumber(phoneNumber) {
     searchString = (new AsYouType('US').input(searchString)).replace(/\s/g, '')
   }
   // PracticeSuite only support (233)999-9999 format
-  const response = await fetch.get(`/PracticeSuite/patientSearchAction.do?myAction=search&lastName=&firstName=&mrn=&pcRef=&insuranceIdNumber=&homePhoneNumber=${searchString}&dateOfBirth=&ssn=&includeInactiveVal=N&includeInactive=N&page=1&start=0&limit=5`)
+  const response = await fetch.get(`${getBaseUrl()}/PracticeSuite/patientSearchAction.do?myAction=search&homePhoneNumber=${searchString}&includeInactiveVal=N&includeInactive=N&page=1&start=0&limit=5`)
   return { response, phoneNumber, searchString }
 }
 
@@ -52,8 +57,8 @@ export async function searchContacts(keyword) {
     const result = await searchPhoneNumber(digital)
     return formatPatients(result.response.patients)
   }
-  const lastNameResponse = fetch.get(`/PracticeSuite/patientSearchAction.do?myAction=search&lastName=${keyword}&firstName=&mrn=&pcRef=&insuranceIdNumber=&homePhoneNumber=&dateOfBirth=&ssn=&includeInactiveVal=N&includeInactive=N&page=1&start=0&limit=50`)
-  const firstNameResponse = fetch.get(`/PracticeSuite/patientSearchAction.do?myAction=search&lastName=&firstName=${keyword}&mrn=&pcRef=&insuranceIdNumber=&homePhoneNumber=&dateOfBirth=&ssn=&includeInactiveVal=N&includeInactive=N&page=1&start=0&limit=50`)
+  const lastNameResponse = fetch.get(`${getBaseUrl()}/PracticeSuite/patientSearchAction.do?myAction=search&lastName=${keyword}&dateOfBirth=&ssn=&includeInactiveVal=N&includeInactive=N&page=1&start=0&limit=50`)
+  const firstNameResponse = fetch.get(`${getBaseUrl()}/PracticeSuite/patientSearchAction.do?myAction=search&lastName=&firstName=${keyword}&includeInactiveVal=N&includeInactive=N&page=1&start=0&limit=50`)
   let patients = []
   const responses = await Promise.all([lastNameResponse, firstNameResponse])
   responses.forEach((r) => {

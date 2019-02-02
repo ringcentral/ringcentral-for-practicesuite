@@ -5,7 +5,7 @@ import initBackground from 'ringcentral-embeddable-extension-common/src/spa/back
  * @param {object} tab
  */
 function checkTab(tab) {
-  return tab.url.include('practicesuite.com')
+  return tab.url.includes('practicesuite.com')
 }
 
 initBackground(checkTab)
