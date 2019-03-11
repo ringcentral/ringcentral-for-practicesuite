@@ -1,15 +1,16 @@
 
-# RingCentral for PracticeSuite
+# RingCentral for PracticeSuite (Community)
 
-RingCentral for PracticeSuite integration. Build with [RingCentral Embeddable](https://github.com/ringcentral/ringcentral-embeddable) and [Extension Factory](https://github.com/ringcentral/ringcentral-embeddable-extension-factory). Integrate with chrome extension or firefox add-on.
+RingCentral for PracticeSuite integration. Build with [RingCentral Embeddable](https://github.com/ringcentral/ringcentral-embeddable) and [Extension Factory](https://github.com/ringcentral/ringcentral-embeddable-extension-factory). Integrate with Chrome extension or Firefox add-on.
 
 ## Features
 
-- Add RingCentral Widget into PracticeSuite web application
-- Add Click-to-call button in Schedule detail page.
-- Hover on patient phone number to show Click-to-call tooltip.
-- Search patient on RingCentral Dial and SMS page
-- Match Patient name on RingCentral incoming call page
+- [x] Add RingCentral Widget into PracticeSuite web application
+- [x] Add Click-to-call button in Schedule detail page.
+- [x] Hover on patient phone number to show Click-to-call tooltip.
+- [x] Search patient on RingCentral Dial and SMS page
+- [x] Match Patient name on RingCentral incoming call page
+- [ ] Contact popup window on incoming call
 
 ## Screenshots
 
@@ -21,7 +22,7 @@ RingCentral for PracticeSuite integration. Build with [RingCentral Embeddable](h
 
 ## Releases
 
-Please get releases in [here](https://github.com/embbnux/ringcentral-for-practicesuite/releases).
+Please get releases in [here](https://github.com/ringcentral/ringcentral-for-practicesuite/releases).
 
 For Chrome: Download chrome extension zip file and decompress in local and goto `chrome://extensions/` to open developer mode and load unpackaged files.
 
