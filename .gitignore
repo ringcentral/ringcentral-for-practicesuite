@@ -7,10 +7,7 @@
 .idea/
 /temp/
 .vscode/
-/dist/**/*
-/dist/*.js
-/dist/*.json
-/dist/*.map
+/dist/
 package-lock.json
 /config.js
 
