@@ -8,7 +8,6 @@
 /temp/
 .vscode/
 /dist/
-package-lock.json
 /config.js
 
 *.crx
