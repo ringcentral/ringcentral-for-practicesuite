@@ -10,10 +10,7 @@ import { isIframe, sendMsgToRCIframe } from 'ringcentral-embeddable-extension-co
 
 import { checkLogin } from './api'
 import * as config from './config'
-
 import './custom.styl'
-
-console.log('inject rc content.js')
 
 let {
   clientID,
@@ -33,10 +30,8 @@ function injectWidget () {
   if (isIframe) {
     return
   }
-  if (window.location.href.indexOf('logoutAction.do') > 0) {
-    return
-  }
-  if (window.location.href.indexOf('login.do') > 0) {
+  if (
+    window.location.href.includes('logoutAction.do') || window.location.href.includes('login.do')) {
     return
   }
   /* eslint-disable-next-line */

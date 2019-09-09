@@ -1,5 +1,11 @@
 import { searchContacts, matchContacts, checkLogin } from './api'
+import {
+  sendMsgToRCIframe
+} from 'ringcentral-embeddable-extension-common/src/common/helpers'
 
+window.rc = {
+  postMessage: sendMsgToRCIframe
+}
 /**
  * content config file
  * with proper config,
@@ -81,7 +87,7 @@ export const phoneNumberSelectors = [
  * thirdPartyService config
  * @param {*} serviceName
  */
-export function thirdPartyServiceConfig(serviceName) {
+export function thirdPartyServiceConfig (serviceName) {
   const services = {
     name: serviceName,
     // // show contacts in ringcentral widgets
@@ -108,9 +114,9 @@ export function thirdPartyServiceConfig(serviceName) {
     if (data.type !== 'rc-post-message-request') {
       return
     }
-    
+
     const { rc } = window
-    
+
     //   else if (path === '/contacts') {
     //     let contacts = await getContacts()
     //     rc.postMessage({
@@ -138,8 +144,7 @@ export function thirdPartyServiceConfig(serviceName) {
           data: result
         }
       })
-    }
-    else if (data.path === '/contacts/match') {
+    } else if (data.path === '/contacts/match') {
       const phoneNumbers = data.body.phoneNumbers || []
       const contacts = await matchContacts(phoneNumbers.slice(0, 4))
       rc.postMessage({
@@ -161,6 +166,6 @@ export function thirdPartyServiceConfig(serviceName) {
  * init third party
  * could init dom insert etc here
  */
-export async function initThirdParty() {
+export async function initThirdParty () {
 
 }
