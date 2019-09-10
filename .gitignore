@@ -16,7 +16,7 @@
 *.seed
 *.gz
 .project
-
+*.zip
 # Coverage directory used by tools like istanbul
 coverage
 
