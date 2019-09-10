@@ -7,11 +7,7 @@
 .idea/
 /temp/
 .vscode/
-/dist/**/*
-/dist/*.js
-/dist/*.json
-/dist/*.map
-package-lock.json
+/dist/
 /config.js
 
 *.crx
@@ -20,7 +16,7 @@ package-lock.json
 *.seed
 *.gz
 .project
-
+*.zip
 # Coverage directory used by tools like istanbul
 coverage
 

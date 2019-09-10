@@ -4,39 +4,34 @@
  */
 
 import createApp from 'ringcentral-embeddable-extension-common/src/spa/init'
-import { ringCentralConfigs } from 'ringcentral-embeddable-extension-common/src/common/app-config'
+import { ringCentralConfigs, thirdPartyConfigs, appVersion } from 'ringcentral-embeddable-extension-common/src/common/app-config'
 import 'ringcentral-embeddable-extension-common/src/spa/style.styl'
 import { isIframe, sendMsgToRCIframe } from 'ringcentral-embeddable-extension-common/src/common/helpers'
 
 import { checkLogin } from './api'
 import * as config from './config'
-
 import './custom.styl'
-
-
-console.log('inject rc content.js')
 
 let {
   clientID,
-  appServer
+  appServer,
+  clientSecret
 } = ringCentralConfigs
-
+let { serviceName } = thirdPartyConfigs
 let appConfigQuery = ''
 if (clientID || appServer) {
-  appConfigQuery = `?clientID=${clientID}&appServer=${encodeURIComponent(appServer)}`
+  appConfigQuery = `?prefix=${serviceName}-rc&newAdapterUI=1&disconnectInactiveWebphone=1&userAgent=${serviceName}_extension%2F${appVersion}&disableActiveCallControl=false&appKey=${clientID}&appSecret=${clientSecret}&appServer=${encodeURIComponent(appServer)}`
 }
 
 let authorized = checkLogin()
 
-function injectWidget() {
+function injectWidget () {
   // Don't inject in iframe
   if (isIframe) {
     return
   }
-  if (window.location.href.indexOf('logoutAction.do') > 0) {
-    return
-  }
-  if (window.location.href.indexOf('login.do') > 0) {
+  if (
+    window.location.href.includes('logoutAction.do') || window.location.href.includes('login.do')) {
     return
   }
   /* eslint-disable-next-line */
