@@ -3,7 +3,7 @@
 import fetch from 'ringcentral-embeddable-extension-common/src/common/fetch'
 import { AsYouType } from 'libphonenumber-js'
 
-export function checkLogin() {
+export function checkLogin () {
   if (document.querySelectorAll('a.user-menu').length > 0) {
     return true
   }
@@ -13,7 +13,7 @@ export function checkLogin() {
   return false
 }
 
-function formatPatients(patients) {
+function formatPatients (patients) {
   return patients.map((p) => {
     const phoneNumbers = []
     if (p.phone) {
@@ -33,12 +33,12 @@ function formatPatients(patients) {
   })
 }
 
-function getBaseUrl() {
+function getBaseUrl () {
   const portStr = window.location.port ? `:${window.location.port}` : ''
   return `${window.location.protocol}//${window.location.hostname}${portStr}`
 }
 
-export async function searchPhoneNumber(phoneNumber) {
+export async function searchPhoneNumber (phoneNumber) {
   let searchString = phoneNumber
   if (phoneNumber.length > 2) {
     if (searchString.indexOf('+1') === 0) {
@@ -51,7 +51,7 @@ export async function searchPhoneNumber(phoneNumber) {
   return { response, phoneNumber, searchString }
 }
 
-export async function searchContacts(keyword) {
+export async function searchContacts (keyword) {
   const digital = keyword.replace(/[^\d+]/g, '')
   if (digital === keyword) {
     const result = await searchPhoneNumber(digital)
@@ -67,7 +67,7 @@ export async function searchContacts(keyword) {
   return formatPatients(patients)
 }
 
-export async function matchContacts(phoneNumbers) {
+export async function matchContacts (phoneNumbers) {
   const promises = []
   phoneNumbers.forEach((phoneNumber) => {
     const promise = searchPhoneNumber(phoneNumber)

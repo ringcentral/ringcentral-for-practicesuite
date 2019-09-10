@@ -12,7 +12,8 @@
     "build": "./node_modules/.bin/cross-env NODE_ENV=production ./node_modules/.bin/webpack --progress -w",
     "start": "npm run build",
     "postinstall": "node bin/post-install",
-    "lint": "./node_modules/.bin/standard"
+    "lint": "./node_modules/.bin/standard",
+    "fix": "./node_modules/.bin/standard --fix"
   },
   "devDependencies": {
     "@babel/cli": "7.4.3",
