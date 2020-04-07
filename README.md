@@ -14,7 +14,7 @@ RingCentral for PracticeSuite Chrome extension. Build with [RingCentral Embeddab
 
 ## Video
 
-[https://youtu.be/Ua0j0gIIQNA](https://youtu.be/Ua0j0gIIQNA)
+[https://youtu.be/vZXrEDy9Be4](https://youtu.be/vZXrEDy9Be4)
 
 ## Screenshots
 
