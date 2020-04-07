@@ -11,6 +11,7 @@ RingCentral for PracticeSuite Chrome extension. Build with [RingCentral Embeddab
 - [x] Search patient on RingCentral Dial and SMS page
 - [x] Match Patient name on RingCentral incoming call page
 - [x] Custom X-USER-AGENT header for api request
+- [x] Support RingCentral Video
 
 ## Video
 
